@@ -10,21 +10,39 @@ const landingImg = document.querySelector(".landing .container .img-con");
 const landingContent = document.querySelectorAll(
     ".landing .container .content *"
 );
-const featureConetent = document.querySelectorAll(".features .container :is(.sec-heading, .item)");
+const featureConetent = document.querySelectorAll(
+    ".features .container :is(.sec-heading, .item)"
+);
 const aboutContent = document.querySelectorAll(".about .container > *");
-const servicesContent = document.querySelectorAll(".services .container :is(.sec-heading, .item)");
-const testimonialsContent = document.querySelectorAll(".testimonials .container > *");
-const teamContent = document.querySelectorAll(".team .container :is(.sec-heading, .item)");
-const statusContent = document.querySelectorAll(".status .container :is(.sec-heading, .state)");
-const FAQContent = document .querySelectorAll(".FAQ .container :is(.sec-heading, .expand)");
-const contactContent = document.querySelectorAll(".contact-us .container :is(.sec-heading, .input-feild, button)")
+const servicesContent = document.querySelectorAll(
+    ".services .container :is(.sec-heading, .item)"
+);
+const testimonialsContent = document.querySelectorAll(
+    ".testimonials .container > *"
+);
+const teamContent = document.querySelectorAll(
+    ".team .container :is(.sec-heading, .item)"
+);
+const statusContent = document.querySelectorAll(
+    ".status .container :is(.sec-heading, .state)"
+);
+const FAQContent = document.querySelectorAll(
+    ".FAQ .container :is(.sec-heading, .expand)"
+);
+const contactContent = document.querySelectorAll(
+    ".contact-us .container :is(.sec-heading, .input-feild, button)"
+);
 // status items
 const statusSection = document.querySelector(".status .container .status");
-const statusItems = document.querySelectorAll(".status .container .status .state");
+const statusItems = document.querySelectorAll(
+    ".status .container .status .state"
+);
 
 //FAQ section
 const FAQ = document.querySelectorAll(".FAQ .container .content .expand h2");
-const toExpand = document.querySelectorAll(".FAQ .container .content .expand .con");
+const toExpand = document.querySelectorAll(
+    ".FAQ .container .content .expand .con"
+);
 // header buttens
 dropMenu.addEventListener("click", function () {
     dropMenu.classList.toggle("dropdownv");
@@ -50,100 +68,78 @@ menuClose.addEventListener("click", function () {
 // scroll reavel
 
 // landing
-ScrollReveal().reveal(
-    landingImg,
-    {
+ScrollReveal().reveal(landingImg, {
     origin: "top",
     distance: "100px",
 });
 
 let d = 0;
-landingContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'left',
-            delay: d,
-        }
-    )
+landingContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "left",
+        delay: d,
+    });
     d += 50;
 });
 
 // features
-featureConetent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+featureConetent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
 });
 
 // about
-aboutContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+aboutContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
 });
 
 //services
-servicesContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+servicesContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
 });
 
 // team
-teamContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+teamContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
 });
 
 // status
-statusContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+statusContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
 });
 
 if (statusSection) {
-    in_view = false
+    in_view = false;
     window.onscroll = function () {
         view = statusSection.getBoundingClientRect().top > window.innerHeight;
         if (!view) {
-            in_view = false
+            in_view = false;
         }
 
         let status = [3923, 131, 962, 5949];
         if (view && !in_view) {
             in_view = true;
-            statusItems.forEach(function (e,index) {
+            statusItems.forEach(function (e, index) {
                 let i = 0;
                 let int = setInterval(function () {
-
                     if (status[index] > 2000) {
                         i += 20;
-                    }
-                    else {
+                    } else {
                         i += 3;
                     }
 
@@ -154,47 +150,65 @@ if (statusSection) {
                 }, 10);
             });
         }
-    }
+    };
 }
 
 // testimonials
-testimonialsContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+testimonialsContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
+});
+
+var slider = tns({
+    container: ".testimonials-slider",
+    controlsContainer: ".controlers",
+    autoplay: true,
+    autoplayButtonOutput: false,
+    nav: true,
+    navPosition: "bottom",
+    mode: "carousel",
+    speed: 700,
+    items: 3,
+    gutter: 10,
+
+    responsive: {
+        0: {
+            items: 1,
+            mouseDrag: true,
+        },
+        700: {
+            items: 2,
+        },
+        992: {
+            items: 3,
+            mouseDrag: false,
+        },
+    },
 });
 
 // FAQ
-FAQContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-        }
-    )
+FAQContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+    });
 });
 
 FAQ.forEach(function (e) {
-    e.addEventListener('click', function() {
+    e.addEventListener("click", function () {
         e.nextElementSibling.classList.toggle("expanded");
     });
 });
 
 // contact us
 d = 0;
-contactContent.forEach(function(e) {
-    ScrollReveal().reveal(
-        e,
-        {
-            distance: '100px',
-            origin: 'bottom',
-            delay: d,
-        }
-    )
+contactContent.forEach(function (e) {
+    ScrollReveal().reveal(e, {
+        distance: "100px",
+        origin: "bottom",
+        delay: d,
+    });
     d += 50;
 });
