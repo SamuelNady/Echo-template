@@ -64,6 +64,8 @@ menuClose.addEventListener("click", function () {
         actions.classList.remove("slideback", "menu-vis");
     }, 500);
 });
+// tns
+let sliderContainer = document.querySelector(".testimonials-slider");
 
 // scroll reavel
 
@@ -161,32 +163,34 @@ testimonialsContent.forEach(function (e) {
     });
 });
 
-var slider = tns({
-    container: ".testimonials-slider",
-    controlsContainer: ".controlers",
-    autoplay: true,
-    autoplayButtonOutput: false,
-    nav: true,
-    navPosition: "bottom",
-    mode: "carousel",
-    speed: 700,
-    items: 3,
-    gutter: 10,
-
-    responsive: {
-        0: {
-            items: 1,
-            mouseDrag: true,
+if (sliderContainer) {
+    let slider = tns({
+        container: ".testimonials-slider",
+        controlsContainer: ".controlers",
+        autoplay: true,
+        autoplayButtonOutput: false,
+        nav: true,
+        navPosition: "bottom",
+        mode: "carousel",
+        speed: 700,
+        items: 3,
+        gutter: 10,
+    
+        responsive: {
+            0: {
+                items: 1,
+                mouseDrag: true,
+            },
+            700: {
+                items: 2,
+            },
+            992: {
+                items: 3,
+                mouseDrag: false,
+            },
         },
-        700: {
-            items: 2,
-        },
-        992: {
-            items: 3,
-            mouseDrag: false,
-        },
-    },
-});
+    });
+}
 
 // FAQ
 FAQContent.forEach(function (e) {
